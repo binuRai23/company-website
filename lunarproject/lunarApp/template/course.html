@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1>Available Courses</h1>
+        <input type="text" id="search-bar" placeholder="Search for courses...">
+    </header>
+    
+    <div class="course-container" id="course-container">
+        <!-- Course cards will be generated here -->
+    </div>
+
+    <!-- Modal for enrollment form -->
+    <div id="enroll-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <h2>Enroll in Course</h2>
+            <form id="enrollment-form" method="post" action="{% url 'enroll' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="selected-course">Selected Course:</label>
+                    <input type="text" id="selected-course" name="selected_course" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Amount to Pay:</label>
+                    <input type="text" id="course-amount" name="course_amount" readonly>
+                </div>
+                <button type="submit">Enroll</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const courses = [
+                {
+                    id: 'course1',
+                    title: 'python classes',
+                    amount: 300,
+                    image: '{% static "img/python.jpeg" %}',
+                    description: 'Learn cutting-edge business strategies for growth.'
+                },
+                {
+                    id: 'course2',
+                    title: 'UI/UX design',
+                    amount: 120,
+                    image: '{% static "images/management-skills.jpg" %}',
+                    description: 'Enhance your productivity, leadership, and strategic skills.'
+                },
+                {
+                    id: 'course3',
+                    title: 'Webapp development',
+                    amount: 1500,
+                    image: '{% static "images/leadership-skills.jpg" %}',
+                    description: 'Master the art of leadership in the 21st century workplace.'
+                },
+                {
+                    id: 'course4',
+                    title: 'Mobileapp development',
+                    amount: 1500,
+                    image: '{% static "images/leadership-skills.jpg" %}',
+                    description: 'Master the art of leadership in the 21st century workplace.'
+                },
+                {
+                    id: 'course5',
+                    title: 'Desktopapp development',
+                    amount: 1500,
+                    image: '{% static "images/leadership-skills.jpg" %}',
+                    description: 'Master the art of leadership in the 21st century workplace.'
+                }
+            ];
+        
+            const courseContainer = document.getElementById('course-container');
+            const searchBar = document.getElementById('search-bar');
+        
+            function displayCourses(courseList) {
+                courseContainer.innerHTML = '';
+                courseList.forEach(course => {
+                    const courseCard = document.createElement('div');
+                    courseCard.classList.add('course-card');
+                    courseCard.innerHTML = `
+                        <img src="${course.image}" alt="${course.title}" class="course-image">
+                        <h3>${course.title}</h3>
+                        <p class="course-description">${course.description}</p>
+                        <p class="course-amount">$${course.amount}</p>
+                        <button class="enroll-button" data-course-title="${course.title}" data-course-amount="${course.amount}">Enroll</button>
+                    `;
+                    courseContainer.appendChild(courseCard);
+                });
+        
+                document.querySelectorAll('.enroll-button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.getElementById('selected-course').value = e.target.getAttribute('data-course-title');
+                        document.getElementById('course-amount').value = e.target.getAttribute('data-course-amount');
+                        document.getElementById('enroll-modal').style.display = 'block';
+                    });
+                });
+            }
+        
+            function filterCourses(event) {
+                const searchTerm = event.target.value.toLowerCase();
+                const filteredCourses = courses.filter(course => 
+                    course.title.toLowerCase().includes(searchTerm) ||
+                    course.description.toLowerCase().includes(searchTerm)
+                );
+                displayCourses(filteredCourses);
+            }
+        
+            searchBar.addEventListener('input', filterCourses);
+            displayCourses(courses);
+        
+            const closeModalButton = document.getElementById('close-modal');
+            const enrollModal = document.getElementById('enroll-modal');
+        
+            closeModalButton.addEventListener('click', () => {
+                enrollModal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar I.T Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo-container">
+                    <!-- <img src="logo.png" alt="Lunar I.T Solutions Logo" class="logo"> -->
+                    <span class="brand-name">Lunar I.T Solutions</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#login" id="loginBtn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="image-banner">
+        <img src="{% static '/img/back.jpeg' %}" alt="Landscape Banner">
+    </section>
+
+    <div class="content">
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>Since 2073 B.S. (2016 A.D.), we have been working with clients to imagine and build software that people love to use. And we think we’re different. We care about who we work for and the quality of work we deliver, and the impact that makes. And that shows in the results we produce together. Lunar IT solution is founded on a commitment to customer happiness, pride in craftsmanship, and making a difference.</p>
+            <div class="buttons">
+                <button class="button" onclick= "window.location.href='Course'">Our Courses</button>
+                <button class="button" onclick="window.location.href='#login'">Login</button>
+            </div>
+        </section>        
+
+        <section id="products" class="product-section">
+            <h2>Products</h2>
+            <div class="product-container">
+                <div class="product-card">
+                    <img src="{% static 'img/product1.jpg' %}" alt="Product 1" class="product-image">
+                    <h3 class="product-title">Product 1</h3>
+                    <p class="product-description">A brief description of Product 1.</p>
+                </div>
+                <div class="product-card">
+                    <img src="{% static 'img/product1.jpg' %}" alt="Product 2" class="product-image">
+                    <h3 class="product-title">Product 2</h3>
+                    <p class="product-description">A brief description of Product 2.</p>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </section>        
+
+        <section id="our-team" class="section">
+            <h2>Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="{% static 'img/profile_placeholder.png' %}" alt="Profile Not Available" class="team-image">
+                    <div class="team-info">
+                        <h3>Not Available</h3>
+                        <p>Position Not Available</p>
+                        <p>Information about this team member is not available.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="{% static 'img/profile_placeholder.png' %}" alt="Profile Not Available" class="team-image">
+                    <div class="team-info">
+                        <h3>Not Available</h3>
+                        <p>Position Not Available</p>
+                        <p>Information about this team member is not available.</p>
+                    </div>
+                </div>
+                <!-- Add more team members as needed -->
+            </div>
+        </section>       
+
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: #90EE90;"></i>
+                    <h3>Address</h3>
+                    <p>Itahari, Sunsari</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: #90EE90;"></i>
+                    <h3>Contact Number</h3>
+                    <p>9816317976</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope" style="font-size: 2rem; color: #90EE90;"></i>
+                    <h3>Email</h3>
+                    <p>lunaritsolution@outlook.com</p>
+                </div>
+            </div>
+        
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+               
+    </div>
+
+    <div class="footer">
+        <div class="column">
+            <h3>Lunar IT Solution</h3>
+            <p>
+                Since 2073 B.S. (2016 A.D.), we have been working with clients to imagine and build software that people love to use. And we think we’re different. We care about who we work for and the quality of work we deliver, and the impact that makes.
+            </p>
+        </div>
+        <div class="column">
+            <h3>Our Services</h3>
+            <p>
+                - Web Development<br>
+                - Mobile Application Development<br>
+                - Desktop Application Development<br>
+                - Hosting Services
+            </p>
+        </div>
+        <div class="column">
+            <h3>Contact</h3>
+            <p>
+                <i class="fas fa-map-marker-alt"></i> Itahari, Sunsari<br>
+                <i class="fas fa-phone"></i> 9816317976<br>
+                <i class="fas fa-envelope"></i> lunaritsolution@outlook.com
+            </p>
+        </div>
+        <div class="column">
+            <h3>Follow Us On:</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024. Developed by Lunar IT Solutions. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- Modal for login form -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form class="login-form">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember Me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var banner = document.querySelector('.image-banner');
+            var header = document.querySelector('header');
+            var scrollPosition = window.scrollY;
+            var bannerHeight = banner.offsetHeight;
+
+            if (scrollPosition <= bannerHeight) {
+                banner.style.opacity = 1 - scrollPosition / bannerHeight;
+                banner.style.transform = `translateY(-${scrollPosition * 0.5}px)`;
+                header.style.backgroundColor = 'rgba(144, 238, 144, ' + (scrollPosition / bannerHeight) + ')';
+            } else {
+                banner.style.opacity = 0;
+                banner.style.transform = `translateY(-${bannerHeight * 0.5}px)`;
+                header.style.backgroundColor = 'rgba(144, 238, 144, 1)';
+            }
+        });
+
+        // Modal functionality
+        var modal = document.getElementById('loginModal');
+        var btn = document.getElementById('loginBtn');
+        var span = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function() {
+            modal.style.display = 'flex';
+        }
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('click', () => {
+                member.querySelector('.team-info p:last-child').classList.toggle('show');
+            });
+        });
+    </script>
+    
+</body>
+</html>
