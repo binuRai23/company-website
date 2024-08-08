@@ -55,35 +55,35 @@
                 {
                     id: 'course1',
                     title: 'python classes',
-                    amount: 300,
+                    amount: 25000,
                     image: '{% static "img/python.jpeg" %}',
                     description: 'Learn cutting-edge business strategies for growth.'
                 },
                 {
                     id: 'course2',
                     title: 'UI/UX design',
-                    amount: 120,
+                    amount: 25000,
                     image: '{% static "images/management-skills.jpg" %}',
                     description: 'Enhance your productivity, leadership, and strategic skills.'
                 },
                 {
                     id: 'course3',
                     title: 'Webapp development',
-                    amount: 1500,
+                    amount: 25000,
                     image: '{% static "images/leadership-skills.jpg" %}',
                     description: 'Master the art of leadership in the 21st century workplace.'
                 },
                 {
                     id: 'course4',
                     title: 'Mobileapp development',
-                    amount: 1500,
+                    amount: 25000,
                     image: '{% static "images/leadership-skills.jpg" %}',
                     description: 'Master the art of leadership in the 21st century workplace.'
                 },
                 {
                     id: 'course5',
                     title: 'Desktopapp development',
-                    amount: 1500,
+                    amount: 25000,
                     image: '{% static "images/leadership-skills.jpg" %}',
                     description: 'Master the art of leadership in the 21st century workplace.'
                 }
@@ -101,7 +101,7 @@
                         <img src="${course.image}" alt="${course.title}" class="course-image">
                         <h3>${course.title}</h3>
                         <p class="course-description">${course.description}</p>
-                        <p class="course-amount">$${course.amount}</p>
+                        <p class="course-amount">${course.amount}</p>
                         <button class="enroll-button" data-course-title="${course.title}" data-course-amount="${course.amount}">Enroll</button>
                     `;
                     courseContainer.appendChild(courseCard);

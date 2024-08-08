@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f4f7;
-    background-image: url("{% static 'img/course back.jpeg' %}");
+    background-image: url("{% static 'img/courseB.jpeg' %}");
 }
 
 .header {
